@@ -1,21 +1,21 @@
 #inputs: the latin alphabet
 #outputs: the new alphabet as listed per the site
 #edge cases: a paragraph
-#numbers -- not accounted for.
-# what is the problem asking? It wants us to convert a string written in the latin alphabet to a string word in the new alphabet
+#numbers and punctuation -- not accounted for, print as is.
+#what is the problem asking? It wants us to convert a string written in the latin alphabet to a string word in the new alphabet
+#MAKE A MINI COMPILER!
 
 def main():
     #we want to get input from the user and make it match something to output the quivalent of that something
-    user_input = input().strip().lower() # I employed a few string methods instead of doing a match/ case because this was a shortcut to getting the input to match the datastructure we will create
+    user_input = input().strip().lower()
+
     #we should probably find a way to convert that input
     convert(user_input)
     
     
 
 def convert(input):
-    #I will make here my own function that I can use to convert the input and return a value that is desired
-    #We could do an if, elif else chain that keeps extending and iterate through it in a while loop, but this would be inefficient so I believe a dict would be better
-
+    #dict containing ASCII alphabet and new alphabet
     New_alphabet = {
         "a": "@",
         "b": "8",
@@ -44,13 +44,12 @@ def convert(input):
         "y": "`/",
         "z": "2"
     }
-    # how would we now go about finding a letter in our data structure?
-    # we could do an if, elif chain but again that would be inefficient, better to use something that iterates naturally, a loop. For loop will be better than a while loop here
-    
+
+    #loop employed to iterate through the dict
+
     total = ""
     for char in input:
         if char in New_alphabet:
-            # print(New_alphabet[char]) -- here i priinted each letter but since the letter is in the loop it doesnt print together as a concatenated string and prints on its own line
             new_char = New_alphabet[char]
         else:
             new_char = char
